@@ -7,7 +7,7 @@ pipeline {
 
         stage ('checkout') {
             steps {
-                git branch: 'develop', credentialsId: 'GregLebreton', url: 'https://github.com/girldevops/Projet-CD-CI.git'
+                git branch: 'features/greg', credentialsId: 'GregLebreton', url: 'https://github.com/kraiem12/ProjetCD-GRIM.git'
             }
         }
 
