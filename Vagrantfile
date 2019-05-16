@@ -18,11 +18,11 @@ Vagrant.configure("2") do |config|
         docker.vm.network :private_network, ip: "192.168.60.3"
     end
 
-    # KUBERNETES
-    config.vm.define "kubernetes" do |kube|
-        kube.vm.hostname = "kubernetes"
+    # NEXUS
+    config.vm.define "nexus" do |nexus|
+        nexus.vm.hostname = "nexus"
         # static ip address
-        kube.vm.network :private_network, ip: "192.168.60.4"
+        nexus.vm.network :private_network, ip: "192.168.60.4"
     end
   
 end
