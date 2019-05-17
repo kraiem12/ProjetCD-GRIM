@@ -154,10 +154,9 @@
 		</distributionManagement>
 
 	<scm>
-   		<connection>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</connection>
-  		<url>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</url>
-   		<developerConnection>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</developerConnection>
-
-</scm>
+  		<url>http://github.com/kraiem12/ProjetCD-GRIM.git</url>
+   		<connection>scm:git@github.com:kraiem12/ProjetCD-GRIM.git</connection>
+   		<!--developerConnection>scm:git@github.com:kraiem12/ProjetCD-GRIM.git</developerConnection-->
+	</scm>
 
 </project>
