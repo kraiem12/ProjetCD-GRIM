@@ -10,10 +10,10 @@ Vagrant.configure("2") do |config|
         kube.vm.network :private_network, ip: "192.168.60.5"
     end
 
-    # MONGODB
     config.vm.define "mongodb" do |mongodb|
-        mongodb.vm.hostname = "mongodb"
-        # static ip address
-        mongodb.vm.network :private_network, ip: "192.168.60.6"
+    	mongodb.vm.hostname = "mongodb.binks"
+    	mongodb.vm.network "public_network", bridge: "p8p1",
+    	#ip: '192.168.60.6'
+    	use_dhcp_assigned_default_route: true
     end
 end
