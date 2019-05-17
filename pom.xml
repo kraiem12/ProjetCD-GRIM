@@ -94,7 +94,7 @@
 						</goals>
 				</execution>
 				<execution>
-git config --global --unset http.proxy 					<id>default-report</id>
+    				<id>default-report</id>
 					<goals>
 						<goal>report</goal>
 					</goals>
