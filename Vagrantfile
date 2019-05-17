@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
     # Linux OS CentOS
     config.vm.box = "geerlingguy/centos7"
     config.vm.network "public_network"
-    # NEXUS 3
+    # kube
     config.vm.define "kubernetes" do |kube|
         kube.vm.hostname = "kube"
         # static ip address
