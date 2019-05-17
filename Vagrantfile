@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.define "mongodb" do |mongodb|
-    	mongodb.vm.hostname = "mongodb.binks"
+    	mongodb.vm.hostname = "mongodb"
     	mongodb.vm.network "public_network", bridge: "p8p1",
     	#ip: '192.168.60.6'
     	use_dhcp_assigned_default_route: true
