@@ -152,4 +152,12 @@
     			<url>http://192.168.60.4:8081/repository/maven-releases</url>
     		</repository>
 		</distributionManagement>
+
+	<scm>
+   		<connection>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</connection>
+  		<url>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</url>
+   		<developerConnection>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</developerConnection>
+
+</scm>
+
 </project>
