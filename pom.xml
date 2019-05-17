@@ -71,7 +71,7 @@
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
 			<version>0.8.5-SNAPSHOT</version>
@@ -102,19 +102,20 @@
 					<configuration>
 						<rules>
 							<rule>
-							<element>BUNDLE</element>
+							<element>PACKAGE</element>
 								<limits>
 									<limit>
-										<counter>COMPLEXITY</counter>
+										<counter>LINE</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.80</minimum>
+											<minimum>0.50</minimum>
 									</limit>
 								</limits>
 							</rule>
 						</rules>
 					</configuration>
 				</execution>
-			</executions></plugin>
+			</executions>
+			</plugin> -->
 		</plugins>
 	</build>
 		<distributionManagement>
