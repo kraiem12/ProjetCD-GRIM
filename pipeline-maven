@@ -7,6 +7,7 @@ pipeline {
 //    }
     tools {
         maven 'maven'
+        docker 'docker'
     }
     stages {
         stage ('checkout') {
@@ -44,7 +45,7 @@ pipeline {
 
         stage('build docker container') {
             steps {
-                sh 'docker build -t my-java-app'
+                sh 'mvn dockerfile:build'
             }
         }
 
