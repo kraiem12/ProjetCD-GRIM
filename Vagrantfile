@@ -24,5 +24,12 @@ Vagrant.configure("2") do |config|
         # static ip address
         nexus.vm.network :private_network, ip: "192.168.60.4"
     end
+
+    # KUBERNETES
+    config.vm.define "kube" do |kube|
+        kube.vm.hostname = "kube"
+        # static ip address
+        kube.vm.network :private_network, ip: "192.168.60.5"
+    end
   
 end

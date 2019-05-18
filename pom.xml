@@ -123,23 +123,24 @@
 				</execution>
 			</executions>
 			</plugin> -->
-			<!-- <plugin>
-			<groupId>com.spotify</groupId>
-			<artifactId>docker-maven-plugin</artifactId>
-			<version>VERSION GOES HERE</version>
+		
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.1</version>
 			<configuration>
-				<imageName>tomcat-image</imageName>
+				<imageName>openjdk:7</imageName>
 				<baseImage>java</baseImage>
 				<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
 				<resources>
-				<resource>
-					<targetPath>/</targetPath>
-					<directory>${project.build.directory}</directory>
-					<include>${project.build.finalName}.jar</include>
-				</resource>
+					<resource>
+						<targetPath>/</targetPath>
+						<directory>${project.build.directory}</directory>
+						<include>${project.build.finalName}.jar</include>
+				  </resource>
 				</resources>
 			</configuration>
-			</plugin> -->
+			</plugin>
 		</plugins>
 	</build>
 		<distributionManagement>
@@ -159,7 +160,7 @@
   		<url>http://github.com/kraiem12/ProjetCD-GRIM</url>
    		<connection>scm:git:git@github.com:kraiem12/ProjetCD-GRIM.git</connection>
    		<!--developerConnection>http://github.com/kraiem12/ProjetCD-GRIM.git</developerConnection-->
-		   <tag>HEAD</tag>
+		  <tag>HEAD</tag>
 	</scm>
 
 </project>

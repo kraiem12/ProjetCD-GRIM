@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'openjdk:7' }
+    }
 //    environment {
 //        DOCKER_HOST=tcp://<host>:2375
 //    }
@@ -18,14 +20,15 @@ pipeline {
 //        }
 //            }
 
-        stage ('parallel') {
+        stage ('tests') {
+            failFast true
             parallel {
-                stage('junit tests') {
+                stage('junit test') {
                     steps {
                         sh 'mvn -f pom.xml -s settings.xml test'
                     }
                 }
-                stage('pmd tests') {
+                stage('pmd test') {
                     steps {
                         sh 'mvn pmd:pmd'
                     }
@@ -33,16 +36,23 @@ pipeline {
             }
         }
     
-        stage('deploy on nexus') {
+//        stage('deploy on nexus') {
+//            steps {
+//                sh 'mvn -f pom.xml -s settings.xml deploy'
+//            }
+//        }
+
+        stage('build docker container') {
             steps {
-                sh 'mvn -f pom.xml -s settings.xml deploy'
+                sh 'docker build -t my-java-app'
             }
         }
 
-        stage('release on nexus') {
-            steps {
-                sh 'mvn -B release:clean release:prepare release:perform'
-            }
-        }
+
+//        stage('release on nexus') {
+//            steps {
+//                sh 'mvn -B release:clean release:prepare release:perform'
+//            }
+//        }
     }
 }
