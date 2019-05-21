@@ -1,5 +1,3 @@
-FROM java:8
-WORKDIR /
-ADD projetcd-1.1-SNAPSHOT.war projetcd-1.1-SNAPSHOT.war
-EXPOSE 8080
-CMD java - war projetcd-1.1-SNAPSHOT.war
+FROM tomcat:9.0-jre8-alpine
+ 
+COPY target/*.war $CATALINA_HOME/webapps/projetcd.war
