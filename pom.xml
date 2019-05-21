@@ -16,7 +16,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.repThe POM for com.spotify:docker-maven-plugin:jar:1.1 is missing, no dependency information availableorting.outputEncoding>
+		<project.reporting.outputEncoding>UTF-8</project>
 		<java.version>1.8</java.version>The POM for com.spotify:docker-maven-plugin:jar:1.1 is missing, no dependency information available
 	</properties>
 
