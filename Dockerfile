@@ -1,6 +1,5 @@
-FROM openjdk:7
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN javac Main.java
-CMD ["java", "Main"]
-EXPOSE 80
+FROM java:8
+WORKDIR /
+ADD projetcd-1.1-SNAPSHOT.war projetcd-1.1-SNAPSHOT.war
+EXPOSE 8080
+CMD java - war projetcd-1.1-SNAPSHOT.war
