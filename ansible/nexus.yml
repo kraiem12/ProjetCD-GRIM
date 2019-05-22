@@ -26,17 +26,11 @@
         shell: "/bin/bash"
         state: present
 
-    # - name: Ensure Nexus installation directory exists
-    #   file:
-    #       path=/opt/bin/nexus/
-    #       state="directory"
-    #   sudo: true
-
+# unpack nexus
     - name: Unpack Nexus download
       unarchive:
           src="/usr/bin/nexus-3.0.2-02-unix.tar.gz"
           dest="/usr/bin"
-          creates="/usr/bin/nexus"
           force=no
           copy=false
           owner="nexus"
@@ -44,35 +38,26 @@
           mode="0755"
       tags: unpack
 
-    # - name: Update symlink nexus-latest
-    #   shell: ln -fs `ls -d {{ nexus_installation_dir }}/nexus-*|tail -1` {{ nexus_installation_dir }}/nexus-latest
-
-    # - name: Install createrepo for nexus-yum-repository-plugin
-    #   yum: name=createrepo state=installed
-    #   when: ansible_os_family == "RedHat"
-
-    # - name: Check if sonatype working directory exists
-    #   stat: path="{{ nexus_installation_dir }}/sonatype-work"
-    #   register: s_w
-
-    # - name: Move existing sonatype working directory into specified working dir
-    #   command: mv "{{ nexus_installation_dir }}/sonatype-work" "{{ nexus_working_dir }}"
-    #   when: s_w.stat.exists
-
+# permissions
     - name: Set permissions and ownership on Nexus installation directory
       file:
-          path=/usr/bin/nexus
+          path=/usr/bin/nexus-3.0.2-02
           state="directory"
           owner="nexus"
           group="nexus"
           mode="0755"
           recurse=true
 
-    # - name: Set permissions and ownership on Nexus work directory
-    #   file:
-    #       path={{ nexus_working_dir }}
-    #       state="directory"
-    #       owner="{{ nexus_os_user }}"
-    #       group="{{ nexus_os_group }}"
-    #       mode="0755"
-    #       recurse=true
+# copier nexus.rc
+    - name: Copy nexus.rc
+      copy: 
+        src: templates/nexus.rc
+        dest: /usr/bin/nexus-3.0.2-02/bin/nexus.rc
+        owner: nexus
+        group: nexus
+        mode: u=rw,g=r,o=r
+
+# demarrer le service
+    - name: démarrage du servive nexus
+      command: /usr/bin/nexus-3.0.2-02/bin/nexus start
+      sudo: yes
