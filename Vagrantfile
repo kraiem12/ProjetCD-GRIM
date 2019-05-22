@@ -9,6 +9,9 @@ Vagrant.configure("2") do |config|
         jenkins.vm.hostname = "jenkins"
         # static ip address
         jenkins.vm.network :private_network, ip: "192.168.60.2"
+    # config.vm.provision "ansible" do |ansible|
+    #     ansible.playbook = "ansible/jenkins.yml"
+    #     end
     end
 
     # DOCKER SLAVE JENKINS
@@ -16,6 +19,9 @@ Vagrant.configure("2") do |config|
         docker.vm.hostname = "docker"
         # static ip address
         docker.vm.network :private_network, ip: "192.168.60.3"
+    # config.vm.provision "ansible" do |ansible|
+    #     ansible.playbook = "ansible/docker.yml"
+    #     end
     end
 
     # NEXUS
@@ -23,6 +29,9 @@ Vagrant.configure("2") do |config|
         nexus.vm.hostname = "nexus"
         # static ip address
         nexus.vm.network :private_network, ip: "192.168.60.4"
+    config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "ansible/nexus.yml"
+        end
     end
 
     # KUBERNETES
@@ -30,6 +39,8 @@ Vagrant.configure("2") do |config|
         kube.vm.hostname = "kube"
         # static ip address
         kube.vm.network :private_network, ip: "192.168.60.5"
-    end
-  
+    # config.vm.provision "ansible" do |ansible|
+    #     ansible.playbook = "ansible/kube.yml"
+    #     end
+    end 
 end
