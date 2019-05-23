@@ -1,7 +1,0 @@
---------------------------------------- TERRAFORM --------------------------------------------
-
-
-Terraform est un orchestrateur d'infrastructure.
-
-Les fichiers: Code Terraform + TfState (état des leiux de l'infra)
-C'est un outil 100% DevOps
